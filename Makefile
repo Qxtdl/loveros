@@ -12,6 +12,7 @@ all: clean compile assemble link iso run
 
 clean:
 	rm -rf $(BUILD)/*
+	mkdir -p build
 
 compile:
 	$(CC) $(SRCS) $(CFLAGS) -o $(BUILD)/kernel.o

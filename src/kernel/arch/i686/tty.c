@@ -41,16 +41,16 @@ void tty_putchar(char c)
 	if (c == '\n') {
 		terminal_row++;
 		terminal_column = 0;
-		update_cursor(terminal_column, terminal_row);
-		return;
 	}
-    terminal_buffer[terminal_row * VGA_WIDTH + terminal_column] = vga_entry(c, terminal_color);
-	if (++terminal_column == VGA_WIDTH) {
-		terminal_column = 0;
-		size_t old_terminal_row = terminal_row;
-		if (++terminal_row == VGA_HEIGHT) {
-			terminal_scroll();
-			terminal_row = old_terminal_row;
+	else {
+		terminal_buffer[terminal_row * VGA_WIDTH + terminal_column] = vga_entry(c, terminal_color);
+		if (++terminal_column == VGA_WIDTH) {
+			terminal_column = 0;
+			size_t old_terminal_row = terminal_row;
+			if (++terminal_row == VGA_HEIGHT) {
+				terminal_scroll();
+				terminal_row = old_terminal_row;
+			}
 		}
 	}
 	update_cursor(terminal_column, terminal_row);

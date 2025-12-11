@@ -32,5 +32,5 @@ static inline uint16_t vga_entry(unsigned char uc, uint8_t color)
 }
 
 #define VGA_WIDTH   80
-#define VGA_HEIGHT  20
+#define VGA_HEIGHT  25
 #define VGA_MEMORY  0xB8000 

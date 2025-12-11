@@ -20,7 +20,6 @@ stack_top:
 .section .text
 .global _start
 .type _start, @function
-.type _kernel_main, @function
 _start:
     movl $stack_top, %esp
 
@@ -29,6 +28,5 @@ _start:
 	cli
 1:  hlt
     jmp 1b
-
 
 .size _start, . - _start

@@ -5,7 +5,7 @@
 
 #include "stdio.h"
 #include "string.h"
-#include "../kernel/arch/i686/tty.h"
+#include "../kernel/driver/tty/tty.h"
 
 int printf(const char* restrict format, ...)
 {
@@ -31,7 +31,7 @@ int printf(const char* restrict format, ...)
 			}
 			if (!strncmp(format_specifier, "x", 1)) {
 				format = format_specifier;
-				printf("0x");
+				printf("$");
 				
 				const char hex_digits[] = "0123456789abcdef";
 				char buf[8 + 1];
@@ -75,9 +75,4 @@ int printf(const char* restrict format, ...)
 inline void puts(const char *str)
 {
 	printf("%s\n", str);
-}
-
-inline void log(const char *str)
-{
-	printf("[LOG]: %s", str);
 }

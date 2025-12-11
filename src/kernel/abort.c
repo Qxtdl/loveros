@@ -1,7 +1,7 @@
 #include "../libc/stdio.h"
 
 __attribute__((__noreturn__))
-void abort(const char *reasson) {
+void _abort(const char *reasson) {
     printf("Kernel Panic: %s\n", reasson);
     asm volatile("hlt");
     while (1);
